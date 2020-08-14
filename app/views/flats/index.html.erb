@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Flats</h1>
+
+  <tbody>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+
+      <% @flats.each do |flat| %>
+       <!--  <tr>
+          <td><%= flat.name %></td>
+          <td><%= flat.address %></td>
+          <td><%= flat.description %></td>
+          <td><%= flat.picture_url %></td>
+          <td><%= flat.price_per_night %></td>
+          <td><%= flat.number_of_guests %></td>
+          <td><%= link_to 'Show', flat %></td>
+          <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
+          <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr> -->
+        <div class="col-3">
+          <div class="card">
+            <img class="card-img-top" src="<%= flat.picture_url %>" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title"><%= flat.name %></h4>
+              <p class="card-text"></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <%= flat.address %>
+                  <div class="d-flex align-items align-items-center">
+                      <i class="small material-icons mr-1">people</i>
+                      <%= flat.number_of_guests %>
+                      <i class="small material-icons m-1">euro_symbol</i>
+                      <%= flat.price_per_night %>
+                  </div>
+                  </li>
+                <li class="list-group-item"><td><%= link_to 'Show', flat %></td></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flat', new_flat_path %>
